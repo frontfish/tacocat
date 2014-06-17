@@ -1,6 +1,7 @@
-Game = {};
-
-// initialize variables
+Game = {
+    w: 400,
+    h: 300,
+};
 
 Game.Boot = function (game) { };
 
