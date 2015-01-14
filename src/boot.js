@@ -1,6 +1,6 @@
 Game = {
-    w: 400,
-    h: 300,
+    w: 640,
+    h: 360,
 };
 
 Game.Boot = function (game) { };

@@ -6,8 +6,7 @@ Game.Load.prototype = {
 
 
 	// load everything
-
-
+	game.load.spritesheet('tacocat', 'assets/img/tacocat.png', 75, 53, 2);
     },
 
     create: function () {
