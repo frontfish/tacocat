@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="18" tilewidth="20" tileheight="20">
+ <tileset firstgid="1" name="background" tilewidth="20" tileheight="20">
+  <image source="background.png" width="20" height="20"/>
+ </tileset>
+ <tileset firstgid="2" name="purple" tilewidth="20" tileheight="20">
+  <image source="purple.png" width="20" height="20"/>
+ </tileset>
+ <tileset firstgid="3" name="tacocat" tilewidth="75" tileheight="53">
+  <image source="tacocat.png" width="150" height="53"/>
+ </tileset>
+ <layer name="Tiles" width="50" height="18">
+  <data encoding="base64" compression="zlib">
+   eJzt1cEJADAMQlHN/kN3gUADTSCUf3hX8SBoSQZwFYlNmRP9gC7ZPl8325kFTOI/gD9Vv227A0buA+c=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="50" height="18">
+  <object gid="4" x="65" y="79"/>
+ </objectgroup>
+</map>
