@@ -16,19 +16,18 @@ Game.Play.prototype = {
 
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	game.physics.arcade.gravity.y = 5000;
-	game.physics.arcade.TILE_BIAS = 20;
+	game.physics.arcade.TILE_BIAS = 25;
 
 	game.tacocat = game.add.sprite(50, 50, 'tacocat', 1);
 //	game.tacocat = game.map.createFromObjects('Object Layer 1', 4, 'tacocat', 1, true)[0];
 	game.physics.arcade.enable(game.tacocat);
 	game.tacocat.body.collideWorldBounds = true;
 	game.tacocat.canJump = function () { return game.tacocat.body.blocked.down };
-	game.tacocat.speed = 400;
+	game.tacocat.speed = 300;
 	game.tacocat.jumpSpeed = 1100;
 	game.tacocat.anchor.x = 0.5;
-	game.tacocat.body.setSize(56, 32, 0, 18);
+	game.tacocat.animations.add('walk');
 	game.camera.follow(game.tacocat, Phaser.Camera.FOLLOW_PLATFORMER);
-
 
 	game.keys = game.input.keyboard.createCursorKeys();
 	game.keys.up.onDown.add(function () {
@@ -44,16 +43,22 @@ Game.Play.prototype = {
 	game.tacocat.body.velocity.x = 0;
 	if (game.keys.left.isDown && !game.keys.right.isDown) {
 	    game.tacocat.body.velocity.x = 0 - game.tacocat.speed;
-	    game.tacocat.frame = 0;
+	    game.tacocat.scale.x = 1;
 	}
 	else if (game.keys.right.isDown && !game.keys.left.isDown) {
 	    game.tacocat.body.velocity.x = game.tacocat.speed;
-	    game.tacocat.frame = 1;
+	    game.tacocat.scale.x = -1;
+	}
+
+	if (game.tacocat.body.velocity.x) {
+	    game.tacocat.animations.play('walk', 15, true);
+	}
+	else {
+	    game.tacocat.animations.stop('walk');
 	}
     },
 
     render: function () {
-	game.debug.body(game.tacocat);
-	game.debug.body(game.layer);
+//	game.debug.body(game.tacocat);
     },
 };
